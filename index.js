@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 // Main starting point of the application
 const express = require('express')
 const http = require('http')
