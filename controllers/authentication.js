@@ -1,4 +1,5 @@
 'use strict'
+
 const jwt = require('jwt-simple')
 const User = require('../models/user')
 const config = require('../config')
@@ -11,7 +12,7 @@ function tokenForUser(user) {
   // the first parameters define the token, and those values has to be unique
 }
 
-const singup = (req, res, next) => {
+const signup = (req, res, next) => {
   const { email, password } = req.body
 
   if (!email || !password) {
@@ -42,4 +43,8 @@ const singup = (req, res, next) => {
   })
 }
 
-module.exports = { singup }
+const signin = (req, res, next) => {
+  res.send({ token: tokenForUser(req.user) })
+}
+
+module.exports = { signup, signin }

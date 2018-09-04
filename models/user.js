@@ -11,7 +11,7 @@ const userSchema = new Schema({
 // On Save Hook, encrypt password
 // Before saving a model, run this function
 userSchema.pre('save', function(next) {
-  // get access ti the user model
+  // get access to the user model
   const user = this
 
   // generate a salt
@@ -32,6 +32,16 @@ userSchema.pre('save', function(next) {
     })
   })
 })
+
+// Compare password to help to local strategy on login
+userSchema.methods.comparePassword = function(candidatePassword, callback) {
+  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+    if (err) {
+      return callback(err)
+    }
+    callback(null, isMatch)
+  })
+}
 
 // Create the clase model
 const ModelClass = mongoose.model('user', userSchema)

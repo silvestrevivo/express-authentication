@@ -9,7 +9,11 @@ const router = require('./routes/router')
 const mongoose = require('mongoose')
 
 // DB Setup
-mongoose.connect('mongodb://localhost:27017/auth')
+mongoose.connect(
+  'mongodb://localhost:27017/auth',
+  { useNewUrlParser: true },
+)
+mongoose.set('useCreateIndex', true)
 
 // App setup
 app.use(morgan('combined')) //logging framework for debugging
@@ -22,4 +26,4 @@ const port = process.env.PORT || 3090
 const server = http.createServer(app)
 server.listen(port)
 
-console.log('server listening on: ' + port)
+console.log(`server listening on: ${port}`)
