@@ -1,14 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { hot } from 'react-hot-loader';
+import Header from './Header';
 
-const App = () => (
-  <div className="container">
-    <img
-      src="https://cdn-images-1.medium.com/max/1600/1*ypTuZbQNEV1oGkAfn85AUA.png"
-      alt="logo-react"
-    />
-    <h1>React Starter</h1>
-  </div>
+const App = ({ children }) => (
+  <React.Fragment>
+    <Header />
+    {children}
+  </React.Fragment>
 );
+
+App.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default hot(module)(App);
