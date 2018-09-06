@@ -1,4 +1,13 @@
+#server
 /server/node_modules
 /server/package-lock.json
 /.vscode
 /server/config.js
+
+#client
+/client/.cache
+/client/dist
+/client/build
+/client/node_modules
+/client/.vscode
+/client/package-lock.json
