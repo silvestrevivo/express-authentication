@@ -1,0 +1,36 @@
+{
+  "name": "express-authentication",
+  "version": "1.0.0",
+  "description": "Authentication with Express server, exercise with ReactJS, following the Udemy Tutorial from @StephenGrider",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvestrevivo/express-authentication.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "react",
+    "authentication"
+  ],
+  "author": "@silvestrevivo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/silvestrevivo/express-authentication/issues"
+  },
+  "homepage": "https://github.com/silvestrevivo/express-authentication#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "jwt-simple": "^0.5.1",
+    "mongoose": "^5.2.10",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
+  }
+}
