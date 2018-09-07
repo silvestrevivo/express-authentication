@@ -7,6 +7,7 @@ const morgan = require('morgan')
 const app = express()
 const router = require('./routes/router')
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 // DB Setup
 mongoose.connect(
@@ -17,6 +18,7 @@ mongoose.set('useCreateIndex', true)
 
 // App setup
 app.use(morgan('combined')) //logging framework for debugging
+app.use(cors()) // allow cors to work in development
 app.use(bodyParser.json({ type: '*/*' })) // parse incomming requests
 // { type: '*/*' } => parse on any request
 router(app)
