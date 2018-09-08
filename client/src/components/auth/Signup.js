@@ -9,21 +9,16 @@ class Signup extends Component {
   static propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     signup: PropTypes.func.isRequired,
+    errorMessage: PropTypes.string.isRequired,
   };
 
   onSubmit = formProps => {
     const { signup } = this.props;
-    console.log(formProps);
-    // signup(formProps);
-    const a = {
-      email: 'elena5@test.nl',
-      password: '12345',
-    };
-    signup(a);
+    signup(formProps);
   };
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, errorMessage } = this.props;
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
         <fieldset>
@@ -44,15 +39,20 @@ class Signup extends Component {
             />
           </label>
         </fieldset>
+        <div>{errorMessage}</div>
         <button type="submit">Sign up!</button>
       </form>
     );
   }
 }
 
+function mapStateToProps(state) {
+  return { errorMessage: state.auth.errorMessage };
+}
+
 export default compose(
   connect(
-    null,
+    mapStateToProps,
     actions
   ),
   reduxForm({ form: 'signup' })
