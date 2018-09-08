@@ -9,8 +9,12 @@ class Signup extends Component {
   static propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     signup: PropTypes.func.isRequired,
-    errorMessage: PropTypes.string.isRequired,
+    errorMessage: PropTypes.string,
     history: PropTypes.object.isRequired,
+  };
+
+  static defaultProps = {
+    errorMessage: '',
   };
 
   onSubmit = formProps => {
