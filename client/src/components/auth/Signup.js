@@ -10,11 +10,14 @@ class Signup extends Component {
     handleSubmit: PropTypes.func.isRequired,
     signup: PropTypes.func.isRequired,
     errorMessage: PropTypes.string.isRequired,
+    history: PropTypes.object.isRequired,
   };
 
   onSubmit = formProps => {
-    const { signup } = this.props;
-    signup(formProps);
+    const { signup, history } = this.props;
+    signup(formProps, () => {
+      history.push('/feature');
+    });
   };
 
   render() {
